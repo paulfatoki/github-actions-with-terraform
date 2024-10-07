@@ -60,6 +60,7 @@ terraform {
     assume_role = {
       role_arn = "arn:aws:iam::PRODUCTION-ACCOUNT-ID:role/Terraform"
     }
+  }
   required_version = ">=0.13.0"
   required_providers {
     aws = {
