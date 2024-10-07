@@ -12,16 +12,15 @@ on:
          required: true
    push:
       branches: [ "main" ]
-
-jobs:
-   terraform:
-   name: 'Terraform Lint, Security Check, and Deploy'
-    
    env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{secrets.DEVOPSSECRET }}
       runs-on: ubuntu-latest
-      environment: production
+      environment: production   
+
+jobs:
+   terraform:
+   name: 'Terraform Lint, Security Check, and Deploy'
 
       steps:
     # Checkout the repository to the GitHub Actions runner
