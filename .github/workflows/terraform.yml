@@ -1,4 +1,4 @@
-name: 'Terraform'
+name: 'Terraform cicd'
 
 on:
    workflow_dispatch:
