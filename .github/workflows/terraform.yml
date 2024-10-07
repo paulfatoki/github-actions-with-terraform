@@ -17,7 +17,7 @@ on:
       AWS_SECRET_ACCESS_KEY: ${{secrets.DEVOPSSECRET }}
       runs-on: ubuntu-latest
       environment: production   
-Jobs:
+jobs:
    build:
       name: 'Terraform Lint, Security Check, and Deploy'
 
