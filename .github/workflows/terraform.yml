@@ -19,7 +19,7 @@ on:
       environment: production   
 
 jobs:
-   Build:
+   build:
    name: 'Terraform Lint, Security Check, and Deploy'
 
       steps:
