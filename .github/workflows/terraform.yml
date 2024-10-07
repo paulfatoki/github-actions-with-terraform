@@ -19,7 +19,7 @@ on:
       environment: production   
 Jobs:
    build:
-   name: 'Terraform Lint, Security Check, and Deploy'
+      name: 'Terraform Lint, Security Check, and Deploy'
 
       steps:
     # Checkout the repository to the GitHub Actions runner
