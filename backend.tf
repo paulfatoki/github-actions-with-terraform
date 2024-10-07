@@ -57,9 +57,7 @@ terraform {
     region         = "eu-west-2"
     key            = "aws-github-actions/terraform.tfstate"
     encrypt = true
-    assume_role = {
-      role_arn = "arn:aws:iam::PRODUCTION-ACCOUNT-ID:role/Terraform"
-    }
+   
   }
   required_version = ">=0.13.0"
   required_providers {
