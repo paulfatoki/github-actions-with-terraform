@@ -1,31 +1,38 @@
-data "aws_ami" "ubuntu" {
-  most_recent = true
 
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+terraform {
+  # Run init/plan/apply with "backend" commented-out (ueses local backend) to provision Resources (Bucket, Table)
+  # Then uncomment "backend" and run init, apply after Resources have been created (uses AWS)
+  backend "s3" {
+    bucket         = "cc-tf-state-backend-ci-cd"
+    key            = "aws-github-actions/terraform.tfstate"
+    region         = "eu-west-2"
+    #dynamodb_table = "terraform-state-locking"
+    encrypt        = true
   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+  required_version = ">=0.13.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~>3.0"
+    }
   }
-
-  owners = ["099720109477"] # Canonical
 }
 
+provider "aws" {
+  region = "eu-west-2"
+}
 
-resource "aws_instance" "web" {
-  #ami                         = data.aws_ami.latest-amazon-linux-image.id
-  ami                         = data.aws_ami.ubuntu.id
-  instance_type               = var.instance_type
-  key_name                    = "devopskey2"
-  subnet_id                   = aws_subnet.myapp-subnet-1.id
-  vpc_security_group_ids      = [aws_default_security_group.default-sg.id]
-  availability_zone           = var.avail_zone
-  associate_public_ip_address = true
-  user_data                   = file("install-nginx.sh")
-  tags = {
-    Name = "${var.env_prefix}-web-server"
-  }
-} 
+module "tf-state" {
+  source      = "./modules/tf-state"
+  bucket_name = "cc-tf-state-backend-ci-cd-100"
+}
+module "vpc-infra" {
+  source = "./modules/vpc"
+
+  # VPC Input Vars
+  vpc_cidr             = local.vpc_cidr
+  availability_zones   = local.availability_zones
+  public_subnet_cidrs  = local.public_subnet_cidrs
+  private_subnet_cidrs = local.private_subnet_cidrs
+}
