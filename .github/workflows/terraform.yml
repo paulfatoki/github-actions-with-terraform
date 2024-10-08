@@ -20,7 +20,9 @@ on:
 jobs:
    build:
       name: 'Terraform Lint, Security Check, and Deploy'
-
+   defaults:
+      run:
+        working-directory: src
       steps:
     # Checkout the repository to the GitHub Actions runner
       - name: Checkout

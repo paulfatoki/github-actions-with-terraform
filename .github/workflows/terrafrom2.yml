@@ -20,7 +20,9 @@ jobs:
       # AWS secrets
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_DEVOPS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{secrets.DEVOPSSECRET}}
-
+    defaults:
+      run:
+        working-directory: src
     runs-on: ubuntu-latest
     environment: production
 
