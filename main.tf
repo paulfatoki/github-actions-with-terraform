@@ -4,7 +4,7 @@ terraform {
   # Then uncomment "backend" and run init, apply after Resources have been created (uses AWS)
   backend "s3" {
     bucket         = "cc-tf-state-backend-ci-cd"
-    key            = "aws-github-actions/terraform.tfstate"
+    key            = "aws-github-actions1/terraform.tfstate"
     region         = "eu-west-2"
     #dynamodb_table = "terraform-state-locking"
     encrypt        = true
@@ -25,7 +25,7 @@ provider "aws" {
 
 module "tf-state" {
   source      = "./modules/tf-state"
-  bucket_name = "cc-tf-state-backend-ci-cd-100"
+  bucket_name = "cc-tf-state-backend-ci-cd-110"
 }
 module "vpc-infra" {
   source = "./modules/vpc"
