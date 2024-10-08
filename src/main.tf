@@ -35,5 +35,5 @@ module "vpc-infra" {
 
 module "tf-state" {
   source      = "./modules/tf-state"
-  bucket_name = "cc-tf-state-backend-ci"
+  bucket_name = "cc-tf-state-backend-c200"
 }
