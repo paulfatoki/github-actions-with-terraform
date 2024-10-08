@@ -38,21 +38,20 @@ jobs:
     - name: Terraform Init
       #uses: hashicorp/terraform-github-actions@master
       uses: hashicorp/setup-terraform@v1
-      id: init
-      run: terraform init
+      
      
 
      
     
     - name: Terraform plan
-      uses: hashicorp/setup-terraform@v1
+      #uses: hashicorp/setup-terraform@v1
       id: plan
       run: terraform plan -no-color
       
       
     - name: Terraform apply
       if: ${{ github.event.inputs.terraform_action == 'apply' }}
-      uses: hashicorp/setup-terraform@v1
+      #uses: hashicorp/setup-terraform@v1
       run: terraform destroy -auto-approve
      
     
