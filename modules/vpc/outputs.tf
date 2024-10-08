@@ -4,7 +4,7 @@ output "cc_vpc_id" {
 }
 
 output "cc_public_subnets" {
-  description = "Will be used by Web Server Module to set subnet_ids"
+  description = "Will be used by Web Server Module to set subnet_id"
   value = [
     aws_subnet.ccPublicSubnet1,
     aws_subnet.ccPublicSubnet2
