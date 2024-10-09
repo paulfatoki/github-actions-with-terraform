@@ -23,8 +23,13 @@ provider "aws" {
   region = "eu-west-2"
 }
 
-module "tf-state" {
-  source      = "./modules/tf-state"
-  bucket_name = "cc-tf-state-backend-c200"
-}
 
+module "vpc-infrastructure" {
+  source = "./modules/vpc"
+
+  # VPC Input Vars
+  vpc_cidr             = local.vpc_cidr
+  availability_zones   = local.availability_zones
+  public_subnet_cidrs  = local.public_subnet_cidrs
+  private_subnet_cidrs = local.private_subnet_cidrs
+}
