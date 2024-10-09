@@ -37,9 +37,9 @@ jobs:
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       #uses: hashicorp/terraform-github-actions@master
-      uses: hashicorp/setup-terraform@v1
+      #uses: hashicorp/setup-terraform@v1
       #id: init
-      #run: terraform init
+      run: terraform init
       
     - name: Terraform validate
       id: validate
