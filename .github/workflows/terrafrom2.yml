@@ -36,16 +36,10 @@ jobs:
     
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      uses: hashicorp/terraform-github-actions@master
-      with:
-        tf_actions_version: 0.14.3
-        tf_actions_subcommand: 'terraform init -reconfigure' 
-        tf_actions_working_dir: '.'
-        tf_actions_comment: true
-        args: '-var="instance_type=t2.medium"'
+      
       #uses: hashicorp/setup-terraform@v1
       #id: init
-      #run: terraform init -reconfigure
+      run: terraform init -backend=true -get=true -input=false
       
     - name: Terraform validate
       id: validate
