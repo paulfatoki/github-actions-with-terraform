@@ -45,7 +45,7 @@ jobs:
         args: '-var="instance_type=t2.medium"'
       #uses: hashicorp/setup-terraform@v1
       #id: init
-      #run: terraform init -reconfigure
+      run: terraform init -reconfigure
       
     - name: Terraform validate
       id: validate
