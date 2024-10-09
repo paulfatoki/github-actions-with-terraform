@@ -39,7 +39,7 @@ jobs:
       #uses: hashicorp/terraform-github-actions@master
       #uses: hashicorp/setup-terraform@v1
       #id: init
-      run: terraform init
+      run: terraform init -reconfigure
       
     - name: Terraform validate
       id: validate
