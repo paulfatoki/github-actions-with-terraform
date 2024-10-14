@@ -18,8 +18,8 @@ jobs:
     name: 'Terraform'
     env:
       # AWS secrets
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_DEVOPS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.DEVOPSSECRETT }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.awsaccesskey }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.devopssecret }}
     defaults:
       run:
         working-directory: . 
