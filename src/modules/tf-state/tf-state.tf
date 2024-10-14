@@ -4,7 +4,7 @@ provider "aws" {
 
 # S3 Bucket for TF State File
 resource "aws_s3_bucket" "example" {
-  bucket        = "jenkins-bucket-204567"
+  bucket        = "jenkins-bucket-20456745"
   force_destroy = true
 }
 
