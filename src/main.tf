@@ -9,3 +9,6 @@ module "vpc" {
   
 
 }
+module "tfstate" {
+  source = "./modules/tf-state"
+}
