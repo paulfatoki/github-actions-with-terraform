@@ -1,3 +1,10 @@
+
+provider "aws" {
+  region = "eu-west-2"
+}
+
+
+
 resource "aws_vpc" "ccVPC" {
   cidr_block       = var.vpc_cidr
   instance_tenancy = "default"
