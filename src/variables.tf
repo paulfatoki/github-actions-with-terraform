@@ -15,3 +15,6 @@ variable "private_subnet_cidrs" {
     description = "availability zones"
     type = list(string)
 }
+variable "avail_zone" {}
+variable "env_prefix" {}
+variable "instance_type" {}

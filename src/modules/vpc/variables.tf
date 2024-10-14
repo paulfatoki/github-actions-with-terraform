@@ -18,6 +18,3 @@ variable "private_subnet_cidrs" {
   description = "CIDRs for Private Subnets"
   type        = list(string)
 }
-variable "avail_zone" {}
-variable "env_prefix" {}
-variable "instance_type" {}
