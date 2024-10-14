@@ -33,11 +33,12 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      working-directory: ./src 
+   
       
       #uses: hashicorp/setup-terraform@v1
       #id: init
-      run: terraform init -backend=true -get=true -input=false
+      run: terraform init
+      working-directory: ./src 
       
     - name: Terraform validate
       id: validate
