@@ -16,15 +16,14 @@ variable "private_subnet_cidrs" {
     type = list(string)
 }
 variable "instance_type" {
-  description = "instance typets"
-  defaul       = "t2.medium"
+  description = "instance type"
+  default       = "t2.medium"
 }
 variable "env_prefix" {
   description = "dev"
-  defaul       = "server1"
+  default       = "dev"
 }
 variable "avail_zone" {
   description = "server1"
-  defaul       = "eu-west-2a"
+  default       = "eu-west-2a"
 }
- 
