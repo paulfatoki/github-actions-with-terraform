@@ -15,6 +15,16 @@ variable "private_subnet_cidrs" {
     description = "availability zones"
     type = list(string)
 }
-variable "avail_zone" {}
-variable "env_prefix" {}
-variable "instance_type" {}
+variable "instance_type" {
+  description = "instance typets"
+  defaul       = "t2.medium"
+}
+variable "env_prefix" {
+  description = "dev"
+  defaul       = "server1"
+}
+variable "avail_zone" {
+  description = "server1"
+  defaul       = "eu-west-2a"
+}
+ 
