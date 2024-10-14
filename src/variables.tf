@@ -23,7 +23,3 @@ variable "env_prefix" {
   description = "dev"
   default       = "dev"
 }
-variable "avail_zone" {
-  description = "server1"
-  default       = "eu-west-2a"
-}
