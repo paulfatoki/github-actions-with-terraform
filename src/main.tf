@@ -11,5 +11,5 @@ module "vpc" {
 }
 module "tf-state" {
   source = "./modules/tf-state"
-  bucket_name = var.bucket_name
+  
 }

@@ -15,8 +15,3 @@ variable "private_subnet_cidrs" {
     description = "availability zones"
     type = list(string)
 }
-variable "bucket_name" {
-    description = "bucket name"
-    type = string
-}
- 
