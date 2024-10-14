@@ -30,11 +30,11 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
+    - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2  
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-   
-      
       #uses: hashicorp/setup-terraform@v1
       #id: init
       run: terraform init
@@ -58,5 +58,5 @@ jobs:
     - name: Terraform destroy
       id: destroy 
       if: ${{ github.event.inputs.terraform_action == 'destroy' }}
-      run: terraform destroy -auto-approve
+      run: terraform destroy -auto-approve 
       working-directory: ./src 
