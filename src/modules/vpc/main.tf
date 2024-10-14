@@ -190,7 +190,7 @@ resource "aws_instance" "web" {
   key_name                    = "devopskey2"
   subnet_id                   = aws_subnet.ccPublicSubnet2.id
   vpc_security_group_ids      = [aws_default_security_group.default-sg.id]
-  availability_zone           = var.avail_zone
+  avail_zone                  = var.avail_zone
   associate_public_ip_address = true
   user_data                   = file("install-nginx.sh")
   tags = {
