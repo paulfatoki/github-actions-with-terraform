@@ -22,7 +22,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.devopssecret }}
     defaults:
       run:
-        working-directory: . 
+        working-directory: ./src 
     runs-on: ubuntu-latest
     environment: production
 
@@ -38,12 +38,12 @@ jobs:
       #uses: hashicorp/setup-terraform@v1
       #id: init
       run: terraform init
-      working-directory: .
+      working-directory: ./src 
       
     - name: Terraform validate
       id: validate
       run: terraform validate
-      working-directory: . 
+      working-directory: ./src 
   
 
      
@@ -52,17 +52,17 @@ jobs:
       #uses: hashicorp/setup-terraform@v1
       id: plan
       run: terraform plan -no-color
-      working-directory: . 
+      working-directory: ./src 
       
       
     - name: Terraform apply
       if: ${{ github.event.inputs.terraform_action == 'apply' }}
       #uses: hashicorp/setup-terraform@v1
       run: terraform apply -auto-approve
-      working-directory: . 
+      working-directory: ./src  
      
     
     - name: Terraform destroy
       if: ${{ github.event.inputs.terraform_action == 'destroy' }}
       run: terraform destroy -auto-approve
-      working-directory: . 
+      working-directory: ./src 
