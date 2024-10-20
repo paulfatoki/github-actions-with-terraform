@@ -5,4 +5,4 @@ private_subnet_cidrs = ["10.0.3.0/24", "10.0.4.0/24"]
 
 env_prefix          = "dev"
 instance_type       = "t2.medium"
-#bucket_name         = "bucket-89085
+#bucket_name         = "bucket-8905
